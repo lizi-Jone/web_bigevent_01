@@ -18,22 +18,22 @@ $(function() {
     });
     // 修改裁剪区域
     $('#file').on('change', function(e) {
-            // 用户选择的文件
-            var file = e.target.files[0];
-            // 非空判断
-            if (file == undefined) {
-                return layer.msg('请选择图片！');
-            }
-            // 把文件生成对应的url路径
-            var newImgURL = URL.createObjectURL(file);
-            // 绘制裁剪区域
-            $image
-                .cropper('destroy') // 销毁旧的裁剪区域
-                .attr('src', newImgURL) // 重新设置图片路径
-                .cropper(options) // 重新初始化裁剪区域
+        // 用户选择的文件
+        var file = e.target.files[0];
+        // 非空判断
+        if (file == undefined) {
+            return layer.msg('请选择图片！');
+        }
+        // 把文件生成对应的url路径
+        var newImgURL = URL.createObjectURL(file);
+        // 绘制裁剪区域
+        $image
+            .cropper('destroy') // 销毁旧的裁剪区域
+            .attr('src', newImgURL) // 重新设置图片路径
+            .cropper(options) // 重新初始化裁剪区域
 
-        })
-        // 修改头像
+    });
+    // 修改头像
     $('#btnUpload').on('click', function() {
         // 获取base64 格式的字符串
         var dataURL = $image
